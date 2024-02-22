@@ -20,6 +20,19 @@ module Types
 
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
+    field :drinks, [Types::DrinkType], null: false
+
+    def drinks
+      Drink.all
+    end
+
+    field :drink, Types::DrinkType, null: false do
+      argument :id, ID, required: true
+    end
+
+    def drink(id:)
+      Drink.find(id)
+    end
 
     field :patrons, [Types::PatronType], null: false
 
@@ -35,18 +48,18 @@ module Types
       Patron.find(id)
     end
 
-    field :drinks, [Types::PatronType], null: false
+    field :orders, [Types::OrderType], null: false
 
-    def drinks
-      Drink.all
+    def orders
+      Order.all
     end
 
-    field :drink, Types::DrinkType, null: false do
+    field :order, Types::OrderType, null: false do
       argument :id, ID, required: true
     end
 
-    def drink(id:)
-      Drink.find(id)
+    def order(id:)
+      Order.find(id)
     end
   end
 end

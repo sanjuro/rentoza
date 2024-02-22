@@ -1,12 +1,12 @@
-class GenerateAlcoholLevelAction < T::Struct
+class GenerateAlcoholLevelAction
 
-  def initialize(patron_id:, drink_id:)
+  def initialize(patron_id, drink_id)
     @patron = Patron.find(patron_id)
     @drink = Drink.find(drink_id)
   end
 
   def perform
-    @patron.alcohol_level += @drink.alcohol_value
+    @patron.alcohol_saturation = @patron.calculate_alcohol_saturation
     @patron.save
   end
 end

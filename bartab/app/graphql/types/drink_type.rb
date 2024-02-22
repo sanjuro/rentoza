@@ -3,6 +3,7 @@
 module Types
   class DrinkType < Types::BaseObject
     field :id, Integer, null: false
-    field :title, String, null: false
+    field :name, String, null: false
+    field :alcohol_value, Float, null: false
   end
 end

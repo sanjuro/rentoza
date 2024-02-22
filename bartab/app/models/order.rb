@@ -1,3 +1,4 @@
 class Order < ApplicationRecord
-  has_many :orders
+  belongs_to :patron
+  belongs_to :drink
 end

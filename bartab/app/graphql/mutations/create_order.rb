@@ -6,7 +6,7 @@ class Mutations::CreateOrder < Mutations::BaseMutation
     field :errors, [String], null: false
 
     def resolve(patron_id:, drink_id:)
-      order = Order.new(patron_id, drink_id)
+      order = Order.new(patron_id: patron_id, drink_id: drink_id)
       if order.save
         action = GenerateAlcoholLevelAction.new(patron_id, drink_id)
         action.perform

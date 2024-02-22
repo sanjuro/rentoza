@@ -1,11 +1,12 @@
 class Mutations::CreatePatron < Mutations::BaseMutation
     argument :name, String, required: true
+    argument :body_mass, Integer, required: true
 
     field :patron, Types::PatronType, null: false
     field :errors, [String], null: false
 
-    def resolve(name:)
-      patron = Patron.new(name: name)
+    def resolve(name:, body_mass:)
+      patron = Patron.new(name: name, body_mass: body_mass)
       if patron.save
         { patron: patron, errors: [] }
       else
