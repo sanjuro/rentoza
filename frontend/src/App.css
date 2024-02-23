@@ -56,6 +56,21 @@
   }
 }
 
+.drink-list {
+  margin: 20px 0px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.drink {
+  flex: 0 0 calc(26.33% - 10px);
+  margin: 10px;
+
+  .name {
+      padding: 5px 10px;
+  }
+}
+
 .remove-link {
   display: inline-block;
   padding: 5px 10px;

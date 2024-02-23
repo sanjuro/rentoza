@@ -27,6 +27,7 @@ const Patrons = ({ patrons, onRemove }) => {
             color: parseFloat(patron.alcoholSaturation) > 0.08 ? 'white' : 'black',
           }}
         >
+          <div className="id">{patron.id}</div>
           <div className="name">{patron.name}</div>
           <div className="alcoholSaturation">{patron.alcoholSaturation}</div>
           <a href="#" onClick={() => onRemove(patron.id)} className="remove-link">Remove</a>

@@ -1,6 +1,6 @@
 class Mutations::CreateOrder < Mutations::BaseMutation
-    argument :patron_id, String, required: true
-    argument :drink_id, String, required: true
+    argument :patron_id, Integer, required: true
+    argument :drink_id, Integer, required: true
 
     field :order, Types::OrderType, null: false
     field :errors, [String], null: false
