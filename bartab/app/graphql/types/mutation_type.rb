@@ -5,5 +5,6 @@ module Types
     field :create_drink, mutation: Mutations::CreateDrink
     field :create_order, mutation: Mutations::CreateOrder
     field :create_patron, mutation: Mutations::CreatePatron
+    field :remove_patron, mutation: Mutations::RemovePatron
   end
 end

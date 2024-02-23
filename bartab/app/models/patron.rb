@@ -1,5 +1,7 @@
 class Patron < ApplicationRecord
-  has_many :orders
+  MAX_ALCOHOL_CONCENTRATION = 0.09
+
+  has_many :orders, dependent: :destroy
   has_many :drinks, through: :orders
 
   def calculate_alcohol_saturation
