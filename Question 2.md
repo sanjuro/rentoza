@@ -1,4 +1,4 @@
-# Welcome to StackEdit!
+# Question 2.2. Rebalance allocations
 
 To solve this problem, I would calculate the difference between each desired capital allocation and the current allocation for each account. Next I would transfer funds from accounts with extra capital amounts too accounts with insufficient capital until the desired allocation is reached.
 
