@@ -6,12 +6,17 @@ This project is divided into two parts, the APi and the Fronted, as detailed bel
 1. The API which is called BarTab, it is built in ruby and requires a Postgres DB
 2. A Frontend UI, built using ReactJS.
 
+## Code
+
+First clone the repo git clone git@github.com:sanjuro/rentoza.git and enter the project folder
+
 ## Database ( Postgres )
 
 ### Setup
 1. Install postgres with homebrew
     ```shell
     brew install postgresql@14
+    brew services start postgresql@14
     ```
 
 ## API ( Ruby )
