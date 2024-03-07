@@ -1,0 +1,3 @@
+# db: pg_ctl start -D /usr/local/var/postgres
+api: bundle exec rails server
+web: cd ../frontend && yarn start
