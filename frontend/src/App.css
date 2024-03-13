@@ -38,11 +38,6 @@
 }
 
 
-.patron-list {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .patron {
   flex: 0 0 calc(33.33% - 10px);
   margin: 10px;

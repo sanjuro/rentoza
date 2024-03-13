@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { useQuery, useMutation } from 'react-apollo'
 import { gql } from 'apollo-boost'
 
+import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.css';
 import Drinks from './Drinks'
 import Patrons from './Patrons'
@@ -132,40 +134,65 @@ function App() {
       <header className="App-header">
         <h1 className='name'>Bartab</h1>
       </header>
-      <main className='main'>
-        <h2 className='name'>Create a new Patron</h2>
-        <form onSubmit={handleCreatePatron}>
-          <input
-            type="text"
-            placeholder="Enter patron name"
-            value={newPatronName}
-            onChange={(e) => setNewPatronName(e.target.value)}
-          />
-          <input
-            type="number"
-            placeholder="Enter body mass"
-            value={newPatronBodyMass}
-            onChange={(e) => setNewPatronBodyMass(e.target.value)}
-          />
-          <button type="submit">Add Patron</button>
-        </form>
 
-        <h2 className='name'>Create a new Order</h2>
-        <form onSubmit={handleCreateOrder}>
-          <input
-            type="number"
-            placeholder="Enter patron id"
-            value={newPatronId}
-            onChange={(e) => setNewPatronId(e.target.value)}
-          />
-          <input
-            type="number"
-            placeholder="Enter drink id"
-            value={newDrinkId}
-            onChange={(e) => setNewDrinkId(e.target.value)}
-          />
-          <button type="submit">Add Drink Order</button>
-        </form>
+      <main className='main'>
+        <Container>
+          <Row className="vh-90 d-flex justify-content-center align-items-center">
+            <Col md={8} lg={6} xs={12}>
+
+              <Card className="shadow">
+                <Card.Body>
+                  <h2 className='name'>Create a new Patron</h2>
+                  <Form className="mb-3" onSubmit={handleCreatePatron}>
+                    <Form.Group className="mb-3" controlId="formPatronName">
+                      <Form.Label>Patron Name</Form.Label>
+                      <Form.Control type="text" placeholder="Enter patron name" onChange={(e) => setNewPatronName(e.target.value)}/>
+                      <Form.Text className="text-muted">
+                      </Form.Text>
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="formPatronWeight">
+                      <Form.Label>Enter the weight of the patron</Form.Label>
+                      <Form.Control type="number" placeholder="Enter patron weight" onChange={(e) => setNewPatronBodyMass(e.target.value)}/>
+                      <Form.Text className="text-muted">
+                      </Form.Text>
+                    </Form.Group>
+
+                    <Button variant="primary" type="submit">Add Patron</Button>
+                  </Form>
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col md={8} lg={6} xs={12}>
+
+              <Card className="shadow">
+                <Card.Body>
+                  <h2 className='name'>Create a new Order</h2>
+                  <Form onSubmit={handleCreateOrder}>
+                    <Form.Group className="mb-3" controlId="formPatronId">
+                      <Form.Label>Patron Id</Form.Label>
+                      <Form.Control type="number" placeholder="Enter patron id" onChange={(e) => setNewPatronId(e.target.value)}/>
+                      <Form.Text className="text-muted">
+                      </Form.Text>
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="formOrderDrinkId">
+                      <Form.Label>Enter the drink id</Form.Label>
+                      <Form.Control type="number" placeholder="Enter drink id" onChange={(e) => setNewDrinkId(e.target.value)}/>
+                      <Form.Text className="text-muted">
+                      </Form.Text>
+                    </Form.Group>
+
+
+                    <Button variant="primary" type="submit">Add Drink Order</Button>
+                  </Form>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+
 
         <Drinks
           drinks={drinks.map(drink => ({
@@ -173,6 +200,7 @@ function App() {
             name: drink.name
           }))}
           />
+
         <Patrons
           patrons={data.patrons.map(patron => ({
             id: patron.id,
