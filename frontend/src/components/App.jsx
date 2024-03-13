@@ -76,7 +76,7 @@ function App() {
   const drinks = [
     { id: 1, name: 'Vodka Martini', alcoholContent: 0.05 },
     { id: 2, name: 'Long Island Iced Tea', alcoholContent: 0.01 },
-    { id: 3, name: 'Amstel Bee', alcoholContent: 0.006 },
+    { id: 3, name: 'Whiskey', alcoholContent: 0.09 },
   ];
 
   const handleCreatePatron = async (e) => {

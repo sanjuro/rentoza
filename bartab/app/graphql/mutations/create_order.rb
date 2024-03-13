@@ -13,7 +13,7 @@ class Mutations::CreateOrder < Mutations::BaseMutation
 
         { order: order, errors: [] }
       else
-        { order: nil, errors: orders.errors.full_messages }
+        { order: nil, errors: order.errors.full_messages }
       end
     end
 end
